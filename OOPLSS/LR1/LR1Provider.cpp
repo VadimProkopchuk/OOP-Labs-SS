@@ -26,7 +26,7 @@ namespace OOPLSS {
 		}
 
 		int LR1Provider::getChoice() {
-			return Utils::ConsoleUtils::readInt("Select menu: ");
+			return Utils::readValue<int>("Select menu: ");
 		}
 
 		void LR1Provider::processOperations(SortedStack<int>* stack, int choice) {
@@ -60,7 +60,7 @@ namespace OOPLSS {
 			int count;
 
 			do {
-				count = Utils::ConsoleUtils::readInt("Enter count of values: ");
+				count = Utils::readValue<int>("Enter count of values: ");
 
 				if (count < 1) {
 					std::cout << "Please enter value greather 0. ";
@@ -68,7 +68,7 @@ namespace OOPLSS {
 			} while (count < 1);
 
 			for (int i = 0; i < count; i++) {
-				stack->push(Utils::ConsoleUtils::readInt("Enter value #" + std::to_string(i) + ": "));
+				stack->push(Utils::readValue<int>("Enter value #" + std::to_string(i) + ": "));
 			}
 		}
 
@@ -98,7 +98,7 @@ namespace OOPLSS {
 
 		void LR1Provider::contains(SortedStack<int>* stack) {
 			if (!stack->isEmpty()) {
-				int findValue = Utils::ConsoleUtils::readInt("Enter value for looking: ");
+				int findValue = Utils::readValue<int>("Enter value for looking: ");
 
 				std::cout << findValue << " in stack? " << (stack->contains(findValue) ? "Yes" : "No") << std::endl;
 			}

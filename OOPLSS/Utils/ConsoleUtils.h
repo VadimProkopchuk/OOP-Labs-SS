@@ -11,14 +11,9 @@
 
 namespace OOPLSS {
 	namespace Utils {
-		class ConsoleUtils {
-		public:
-			static int readInt(const std::string&);
-		};
-
-		inline int ConsoleUtils::readInt(const std::string &msg)
-		{
-			int value;
+		template<class T>
+		T readValue(std::string msg) {
+			T value;
 
 			std::cout << msg;
 
@@ -29,6 +24,19 @@ namespace OOPLSS {
 			}
 
 			return value;
+		}
+
+		template <class T>
+		T readWithCheck(std::string msg, T min) {
+			T res = readValue<T>(msg);
+
+			while (res < min)
+			{
+				std::cout << "Enter value greather " << min << std::endl;
+				res = readValue<T>(msg);
+			}
+
+			return res;
 		}
 	}
 }
