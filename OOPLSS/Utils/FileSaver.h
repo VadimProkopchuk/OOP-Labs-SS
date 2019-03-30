@@ -25,8 +25,8 @@ namespace OOPLSS {
 			}
 			void save(T* obj) {
 				std::ofstream file;
-				file.open(this->path, std::ios::app);
-				file.write((char*)&(*obj), sizeof(*obj));
+				file.open(this->path, std::ios::binary|std::ios::out);
+				file.write((char*)&(*obj), sizeof(T));
 				file.close();
 			}
 		};

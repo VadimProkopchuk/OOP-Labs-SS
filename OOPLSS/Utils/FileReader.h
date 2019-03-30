@@ -26,8 +26,8 @@ namespace OOPLSS {
 				T* obj = new T();;
 				std::ifstream file;
 
-				file.open(this->path, std::ios::in);
-				file.read((char*)&(*obj), sizeof(*obj));
+				file.open(this->path, std::ios::binary|std::ios::in);
+				file.read((char*)&(*obj), sizeof(T));
 				file.close();
 
 				return obj;

@@ -4,5 +4,7 @@
 // License:  http://opensource.org/licenses/MIT
 // ======================================
 
-#pragma once
-#include <SDKDDKVer.h>
+#ifndef PCH_H
+#define PCH_H
+
+#endif //PCH_H

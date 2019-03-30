@@ -18,17 +18,28 @@ namespace OOPLSS {
 			public:
 				int departmentNumber;
 
+				Employer() {
+
+				}
+
 				Employer(std::string fio, int dep, std::string pos, std::string date)
 					:fio(fio), departmentNumber(dep), position(pos), date(date) {
 
 				}
-				~Employer() {
-					this->fio.clear();
-					this->position.clear();
-					this->date.clear();
+
+				void setFio(std::string newFio) {
+					this->fio = newFio;
 				}
 
-				friend std::ostream& operator<<(std::ostream& outputStream, Employer& employer) {
+				void setPosition(std::string newPosition) {
+					this->position = newPosition;
+				}
+
+				void setDate(std::string newDate) {
+					this->date = newDate;
+				}
+
+				friend std::ostream& operator<<(std::ostream& outputStream, const Employer& employer) {
 					outputStream << "FIO: " << employer.fio << std::endl <<
 									"Department Number: " << employer.departmentNumber << std::endl <<
 									"Position: " << employer.position << std::endl <<

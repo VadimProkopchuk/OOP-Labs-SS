@@ -11,6 +11,15 @@
 
 namespace OOPLSS {
 	namespace Utils {
+		std::string readString(std::string msg) {
+			std::string value;
+			std::cout << msg;
+			std::cin.ignore();
+			std::getline(std::cin, value);
+
+			return value;
+		}
+		
 		template<class T>
 		T readValue(std::string msg) {
 			T value;
