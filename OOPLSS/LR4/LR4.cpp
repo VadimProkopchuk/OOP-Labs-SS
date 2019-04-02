@@ -56,10 +56,10 @@ namespace OOPLSS {
 		}
 
 		void printMenu() {
-			std::cout << "1. Show all items" << std::endl
-					  << "2. Show all items sorted by asc" << std::endl
-					  << "3. Show all items sorted by desc" << std::endl
-					  << "4. Edit value" << std::endl
+			std::cout << "1. Show All Items" << std::endl
+					  << "2. Show All Items Sorted by Department Number (ASC)" << std::endl
+					  << "3. Show All Items Sorted by Department Number (DESC)." << std::endl
+					  << "4. Edit Value" << std::endl
 					  << "5. Exit" << std::endl;
 		}
 
