@@ -60,7 +60,8 @@ namespace OOPLSS {
 					  << "2. Show All Items Sorted by Department Number (ASC)" << std::endl
 					  << "3. Show All Items Sorted by Department Number (DESC)." << std::endl
 					  << "4. Edit Value" << std::endl
-					  << "5. Exit" << std::endl;
+					  << "5. Save Fake Data" << std::endl
+					  << "6. Exit" << std::endl;
 		}
 
 		void showStackValues(LrStack<Employer>* stack) {
@@ -90,7 +91,7 @@ namespace OOPLSS {
 			std::string fileName = "employers.bin";
 			int choice = -1;
 
-			while (choice != 5) {
+			while (choice != 6) {
 				printMenu();
 				choice = readWithCheck<int>("Enter menu value:  ", 1);
 				system("cls");
@@ -146,6 +147,16 @@ namespace OOPLSS {
 						else {
 							std::cout << "Can't find Employer by department number";
 						}
+						break;
+					}
+					case 5:
+					{
+						LrStack<Employer>* fakeEmployers = new LrStack<Employer>();
+						fakeEmployers->push(Employer("Prokopchuk 1", 1, "Pos 1", "02.04.2019"));
+						fakeEmployers->push(Employer("Prokopchuk 2", 2, "Pos 2", "04.04.2019"));
+						fakeEmployers->push(Employer("Prokopchuk 3", 3, "Pos 3", "06.04.2019"));
+						fakeEmployers->push(Employer("Prokopchuk 4", 4, "Pos 4", "09.04.2019"));
+						saveToFile(fakeEmployers, fileName);
 						break;
 					}
 				}
