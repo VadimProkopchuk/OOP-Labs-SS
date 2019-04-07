@@ -48,6 +48,18 @@ namespace OOPLSS {
 
 					return outputStream;
 				}
+
+				bool operator < (const Employer& employer) {
+					return this->departmentNumber < employer.departmentNumber;
+				}
+
+				bool operator > (const Employer& employer) {
+					return this->departmentNumber > employer.departmentNumber;
+				}
+
+				bool operator == (const Employer& employer) {
+					return this->departmentNumber == employer.departmentNumber;
+				}
 		};
 	}
 }
