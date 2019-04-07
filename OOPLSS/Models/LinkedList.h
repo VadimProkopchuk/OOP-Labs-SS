@@ -223,34 +223,34 @@ namespace OOPLSS {
 				this->sort([](T& val1, T& val2) -> bool {return val1 < val2;});
 			}
 
-			// lr6
-			//Iterator* compare_list(LinkedList<T>* list) {
-			//	Item* head = this->_head;
-			//	Iterator* iterator = list->toBackIterator();
+			bool all(bool(*predicate)(T&)) {
+				Iterator* iterator = this->toBackIterator();
 
-			//	while (head != nullptr) {
-			//		if (iterator->hasValue() && !(*iterator->getValue() == head->value)) {
-			//			break;
-			//		}
+				while (iterator->hasValue()) {
+					if (!predicate(*iterator->getValue())) {
+						return false;
+					}
 
-			//		head = head->next;
-			//		iterator->moveNext();
-			//	}
+					iterator->moveNext();
+				}
 
-			//	return new Iterator(head, [](Item* head) -> Item* { return head->next; });
-			//}
+				return true;
+			}
 
-			//void set_value_by_predicate(T& val, bool(*where)(T&)) {
-			//	Iterator* iterator = this->toBackIterator();
+			Iterator* where_by_predicate(bool(*predicate)(T&)) {
+				LinkedList<T>* list = new LinkedList();
+				Iterator* iterator = this->toBackIterator();
 
-			//	while (iterator->hasValue()) {
-			//		if (where(*iterator->getValue())) {
-			//			iterator->set_value(val);
-			//		}
+				while (iterator->hasValue()) {
+					if (predicate(*iterator->getValue())) {
+						list->push_back(*iterator->getValue());
+					}
 
-			//		iterator->moveNext();
-			//	}
-			//}
+					iterator->moveNext();
+				}
+
+				return list->toBackIterator();
+			}
 		};
 	}
 }
